@@ -1,0 +1,25 @@
+extends layout.pug
+
+block hero
+    section.hero.is-dark.is-bold
+        .hero-body
+            .container
+                h1.title New Product
+                h2.subtitle Create a new octolion product
+
+block content
+  .container
+    form(method="POST", enctype="multipart/form-data" )
+      .form-group
+        label(for="name") Name
+        input.form-control(type="text", name="name", id="name", value=product.name)
+      .form-group
+        label(for="price") Price
+        input.form-control(type="number", name="price", id="price", value=product.price)
+      .form-group
+        label(for="imageUrl") Cover Image
+        input.form-control(type="file", name="image", id="image")
+      .form-group.hidden
+        label(for="image") Cover Image URL
+        input.form-control(type="text", value=product.image)
+      button.btn.btn-success(type="submit") Save
